@@ -8,16 +8,16 @@ background: #333; line-height: 30px; width: 160px; text-align: center;}
 
 
 /*레이아웃*/
-#wrap {}
+
 #header { height: 325px; background: url(../img/header_bg.jpg) center top repeat-x;}
-#contents {}
+
 #footer { height: 200px; background: #333;}
 
 /*컨텐츠 레이아웃*/
 /*처음 시작 할 때 영역을 잡고 backgrond를 사용해 영역이 잘 들어 갔는지 확인 하는 습관*/
-#cont_nav {}
-#cont_tit {width: 100%; height: 200px; background: #444;}
-#cont_ban {width: 100%; height: 200px; background: #555;}
+#cont_nav {background-color: #f6fdff;}
+#cont_tit {background-color: #eaf7fd;}
+#cont_ban {background-color: #dceff7;}
 #cont_cont {width: 100%; height: 200px; background: #666;}
 
 
@@ -61,11 +61,38 @@ background: #333; line-height: 30px; width: 160px; text-align: center;}
 /*전체 메뉴 */
 /*.nav div는 nav밑에 div는 다 포함 시킨다, .nav > div는 바로 밑에 있는 자식만 포함시킨다.*/
 .nav {overflow: hidden; padding: 30px 0;}
-.nav > div {float: left; width: 40%;}   /*전체 div박스는 40%지만 안에있는 li의 a태그들은 100%이다.*/                
-.nav > div:last-child {width: 20%;}    /* ie9부터 사용가능 i8까지 맞추려면 .nav > div.last {width: 20%} 하면 된다 */     
+.nav > div {float: left; width: 40%;}   /*전체 div박스는 40%지만 안에있는 li의 a태그들은 100%이다.처음 3덩어리 div에서 40%니깐 나머지 밀려서 마지막 40%div가 아래로 나려옴 */                
+.nav > div:last-child {width: 20%;}    /* 그래서 last-child로 20%로 맞춰준다.ie9부터 사용가능 i8까지 맞추려면 .nav > div.last {width: 20%} 하면 된다 */  
+.nav > div.last {width: 20%;}   
 .nav > div h3 {font-size: 18px; color: #25a2d0; margin-bottom: 4px;}
 
 .nav > div ol {overflow: hidden;}
-.nav > div ol li {float: left; width: 50%;}
-.nav > div:last ol li {width: 100%;}
+.nav > div ol li {float: left; width: 50%;} /*40%div에서 li는 100%임 이것을 반으로 나눠서 오른쪽에 붙일 것임 그래서 50%로 해놓는다*/
+.nav > div.last ol li {width: 100%;}   /*마지막 부분은 나눌 필요가 없어서 last붙여서 100%를 다 준다*/
 .nav > div ol li a:hover {text-decoration: underline;}
+
+/* 타이틀 */
+.tit {position: relative;} /*기준점 역할을 한다 btn전체메뉴 버튼을 tit기준 안에서 top 0 right 0으로 가야해서*/
+.tit h2 {font-size: 40px; text-align: center; padding: 5px 0; letter-spacing: 2px; color: #2c94c4; font-family: 'Nanum Brush Script', cursive;} /*letter-spacing은 글자간격*/
+.tit .btn {position: absolute; top: 5px; right: 0; width: 60px; height: 60px; 
+           background: url(../img/icon.png) no-repeat 0 -600px;} /*자식요소로서 부모요소 기준으로 포시션 값을 받는다.*/
+
+/* 배너 */
+/*원래 원칙은 div container div.ban.a.prev가 원칙인데 앞에 생략하여 div.ban.a.prev로 나타낸다
+  div#cont_ban div.container div.ban a.priv{} 가 원칙 */
+.ban {position: relative; padding: 24px 0 20px;}
+.ban a.prev {position: absolute; left: -80px; top: 60px; width: 43px; height: 43px; background: url(../img/icon.png) no-repeat -150px 0;}
+.ban a.next {position: absolute; right: -80px; top: 60px; width: 43px; height: 43px; background: url(../img/icon.png) no-repeat -150px -43px;}
+.ban a.prev:hover {background-position: -193px 0;}
+.ban a.next:hover {background-position: -193px -43px;} 
+
+.ban ul {overflow: hidden;}
+.ban ul li{float: left; width: 330px;} 
+.ban ul li:last-child{text-align: right;}/* ie9부터 적용*/
+.ban ul li:nth-child(2) {text-align: center;}/* ie9부터 적용*/
+/*모든 버전에서 다먹히는 방법 배너 이미지 위치 호환성이 좋음*/
+.ban ul li.ban_img1 {text-align: left;}
+.ban ul li.ban_img2 {text-align: center;}
+.ban ul li.ban_img3 {text-align: right;}
+.ban ul li img {border: 4px solid #dcdcdc;}
+.ban ul li img:hover {border-color: #98bcdc;}

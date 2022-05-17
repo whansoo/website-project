@@ -13,6 +13,7 @@
    <link rel="stylesheet" href="css/style.css">
     <!-- 웹 폰트 -->
    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Nanum+Brush+Script&family=Nanum+Gothic&display=swap" rel="stylesheet">
 </head>
 <body>
     <!--스킵 내비게이션-->
@@ -60,7 +61,7 @@
         <div id="contents">
             <div id="cont_nav">
                 <div class="container">
-                    <h2 class="ir_su">전체 메뉴</h2>
+                    <h2 class="ir_su">전체 메뉴</h2> <!--ir_su는 우리눈에는 필요 없지만 시각 리더기에 필요함으로 사용 -->
                     <div class="nav">
                        <div>
                            <h3>HTML Reference</h3>
@@ -118,12 +119,27 @@
             <!--//cont_nav-->
 
             <div id="cont_tit">
-                <div class="container">cont_tit</div>
+                <div class="container">
+                    <div class="tit">
+                    <h2>"나는 프론트엔드 개발자다"</h2>
+                    <a href="#" class="btn"><span class="ir_pm">전체메뉴</span></a>
+                    </div>
+                </div>
             </div>
             <!--//cont_tit-->
 
             <div id="cont_ban">
-                <div class="container">cont_ban</div>
+                <div class="container">
+                    <div class="ban">
+                    <a href="#" class="prev"><span class="ir_pm">이전 이미지</span></a> <!--ir_pm때문에 이전이미지 라는 텍스트가 사라짐-->
+                    <ul>
+                        <li class="ban_img1"><a href="#"><img src="img/banner_link1.jpg" alt="웹 표준 지침서 보기"></a></li>
+                        <li class="ban_img2"><a href="#"><img src="img/banner_link2.jpg" alt="CSS 버튼 만들기"></a></li>
+                        <li class="ban_img3"><a href="#"><img src="img/banner_link3.jpg" alt="로그인 폼 만들기"></a></li>
+                    </ul>
+                    <a href="#" class="next"><span class="ir_pm">다음 이미지</span></a>
+                    </div>
+                </div>
             </div>
             <!--//cont_ban-->
 
