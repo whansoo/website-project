@@ -112,7 +112,7 @@ background: #333; line-height: 30px; width: 160px; text-align: center;}
      영역을 죽여놔서 글씨가 그림에 겹쳐보인다 그래서 padding을 사용하여 자연스럽게 만든다.*/
 .cont .column .ico_img {display: block; width: 60px; height: 60px; background: url(../img/icon.png) no-repeat; position: absolute; left: 0; top: 0;}
 .cont .column .ico_tit {padding-left: 70px; font-size: 16px; color: #2c94c4;}
-.cont .column .ico_desc {padding-left: 70px; border-bottom: 1px solid #d0d0d0; padding-bottom: 15px;}
+.cont .column .ico_desc {padding-left: 70px; border-bottom: 1px solid #d0d0d0; padding-bottom: 15px; margin-bottom: 15px;} /*margin-bottom은 notice 공동으로 간격을 띄우기 위해 사용함*/
 
 .cont .col1 .ico_img {background-position: 0px -240px;}
 .cont .col2 .ico_img {background-position: 0px -300px;}
@@ -126,3 +126,52 @@ background: #333; line-height: 30px; width: 160px; text-align: center;}
 .cont .col4 .ico_img:hover {background-position: -60px -420px;}
 .cont .col5 .ico_img:hover {background-position: -60px -480px;}
 .cont .col6 .ico_img:hover {background-position: -60px -540px;}
+
+/* 게시판 */
+.notice {position: relative;}
+.notice h4 {font-size: 14px; color: #0093bd; padding-bottom: 3px; font-weight: bold;}
+ /*overflow:hidden원래 역할은 width과 height가 지정된 영역만큼 보이고 이 영역이 넘어가면 보이지 말아라 라는 뜻 
+      text-overflow:ellipsis는 내가 지정한 영역이 넘어가면 바꿔짐,white-space:nowrap은 2줄을 1줄로 바꿔짐*/                                                  
+.notice ul li {overflow: hidden; text-overflow: ellipsis; white-space: nowrap; background: url(../img/dot.gif) no-repeat 0 8px; padding-left: 8px;}
+.notice ul li a {font-size: 12px;}
+.notice a.more {position: absolute; right: 0; top: 0; display: block; background: url(../img/icon.png) -150px -90px; width: 17px; height: 17px;}
+
+/* 게시판2 */
+.notice2 {position: relative; margin-top: 15px;}
+.notice2 h4 {font-size: 14px; color: #0093bd; padding-bottom: 3px; font-weight: bold;}
+.notice2 li {overflow: hidden;  background: url(../img/dot.gif) no-repeat 0 8px; padding-left: 8px;}
+.notice2 li a {float: left; width: 65%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.notice2 li span {float: right; width: 30%; text-align: right;} /* span태그나 a태그같이 inline요소가 왜 float이랑 width가 먹히는지 의아해 했다 . float을 주면 자동으로 inline에서 inline-block으로 바뀐다. */
+.notice2 a.more {position: absolute; right: 0; top: 0; display: block; background: url(../img/icon.png) -150px -90px; width: 17px; height: 17px;}
+
+/* 게시판3 */
+.notice3 {position: relative;}
+.notice3 h4 {font-size: 14px; color: #0093bd; padding-bottom: 3px; font-weight: bold;}
+.notice3 li {position: relative; padding: 8px 0 14px 60px;}
+.notice3 li a img {width: 50px; position: absolute; left: 0; top: 0; border: 1px solid #0093bd;} /*float을 주면 코드가 지저분해지고 복잡해져서 position으로 absolut주면 영역이 사라지기 때문에 기준값인 위에li에 relative를줘서 그기준으로 옮긴다.*/
+.notice3 li a strong {display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.notice3 li a span {display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px;}
+.notice3 a.more {position: absolute; right: 0; top: 0; display: block; background: url(../img/icon.png) -150px -90px; width: 17px; height: 17px;}
+
+/* 마우스 오버효과1 */
+.notice_hover h4 {font-size: 14px; color: #0093bd; padding-bottom: 3px; font-weight: bold;}
+.notice_hover ul {overflow: hidden;}
+.notice_hover li {float: left;  width: 93px; margin-right: 5px; text-align: center;}/*block구조를 정렬 하기위해 float를 사용함 .text-align은 밑에 와이어프레임, 스케치작업,ui디자인 및 바로가기를 가운데로 정렬함*/
+.notice_hover li:last-child {margin-right: 0;} /*ie9 부터 적용*/
+.notice_hover li.last {margin-right: 0;} /*모든 브라우저 버전 적용*/
+.notice_hover li a span {position: relative; display: block; width: 93px; height: 93px; line-height: 93px;} /* em의 바로가기 글씨 위치를 span에 기준으로함 span기준으로 하려면 block으로 만들고 넓이와 높이를 줘서 영역을 만듬 */
+.notice_hover li a span img {width: 100%;}
+.notice_hover li a span em {visibility:hidden; position: absolute; left: 0; top: 0; background: rgba(0, 0, 0, 0.7); 
+                            color: #fff; width: 100%; height: 100%; }/*글씨 원래 아래에 있어서 absolute사용하고 위치 위로 올림, visibility:hidden은 em의 바로가기를 숨긴다*/
+.notice_hover li a span:hover em {visibility: visible;} /*위에 바로가기를 숨겼던것을 다시 보이게 함 */
+.notice_hover li a strong {padding-top: 3px; display: inline-block; font-size: 12px;}
+
+/* 마우스 오버효과2 */
+.notice_hover2 ul {overflow: hidden;}
+.notice_hover2 li {float: left; width: 93px; text-align: center; margin-right: 5px;} /*영역을 꺠고 옆으로 사진이 붙으려면 float사용 하고 반드시 부모 요소에 overflow:hidden을 사용한다. margin마지막부분이 넘친다*/
+.notice_hover2 li:last-child {margin-right: 0;}
+.notice_hover2 li a span {position: relative; display: block; width: 93px; height: 93px;}
+.notice_hover2 li a span img {width: 100%;} /*with값 100%안주면 겹치고 짤린다*/
+.notice_hover2 li a span em {visibility:hidden; position: absolute; left: 0; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7); color: #fff;}
+.notice_hover2 li a span:hover em {visibility:visible;}
+.notice_hover2 li a strong {padding-top: 3px; display: inline-block; font-size: 12px;}
